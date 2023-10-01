@@ -1,0 +1,12 @@
+<div class="todo__input">
+  <input class="todo__text" type="text" [(ngModel)]="text" />
+  <button class="todo__add" (click)="addToList()">Add</button>
+  <button *ngIf="todos.length > 1" class="delete__btn" (click)="delAll()">
+    Delete all
+  </button>
+</div>
+<ul class="todo__items">
+  <li class="todo__item" *ngFor="let item of todos; let id = index">
+    <todo-item [item]="item" [id]="id" (delete)="delItem($event)"></todo-item>
+  </li>
+</ul>
